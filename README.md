@@ -1,8 +1,8 @@
 # 정현 시도
 ### Aquired
-> |pytorch|1.4.0|
-> |transformers|3.5.0|
-> |pytorch-lightning|1.2.3|
+> |pytorch            |1.4.0|
+> |transformers       |3.5.0|
+> |pytorch-lightning  |1.2.3|
 > |kobert_trnasformers|0.4.1|
 - apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
 
