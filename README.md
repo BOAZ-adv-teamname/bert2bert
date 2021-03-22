@@ -1,3 +1,18 @@
+# 정현 시도
+### Aquired
+> |pytorch|1.4.0|
+> |transformers|3.5.0|
+> |pytorch-lightning|1.2.3|
+> |kobert_trnasformers|0.4.1|
+- apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
+
+<br>
+
+### 오류
+> raise RuntimeError("Invoked 'with amp.scale_loss', but internal Amp state has not been initialized. RuntimeError: Invoked 'with amp.scale_loss', but internal Amp state has not been initialized.  model, optimizer = amp.initialize(model, optimizer, opt_level=...) must be called before 'with amp.scale_loss'.
+
+<br>
+
 # Bert2Bert Summarization
 Abstractive summarization using [Bert2Bert](https://arxiv.org/pdf/1907.12461.pdf) framework
 ![](https://user-images.githubusercontent.com/38183241/101169654-9d6fdd80-3680-11eb-96ae-965d22b05fa8.png)
