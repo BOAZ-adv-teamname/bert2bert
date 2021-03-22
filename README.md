@@ -1,5 +1,5 @@
 # 정현 시도
-#### required
+#### Requirement
 > |name               |version|
 > |-------------------|-------|
 > |pytorch            |1.4.0  |
@@ -10,7 +10,7 @@
 
 <br>
 
-#### 오류
+#### Error
 > raise RuntimeError("Invoked 'with amp.scale_loss', but internal Amp state has not been initialized. RuntimeError: Invoked 'with amp.scale_loss', but internal Amp state has not been initialized.  model, optimizer = amp.initialize(model, optimizer, opt_level=...) must be called before 'with amp.scale_loss'.
 
 <br>
