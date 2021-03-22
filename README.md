@@ -1,12 +1,17 @@
 # 정현 시도
+```
+lightning amp 관련 에러나는데 해결 방법을 모르겠음
+lightning 다 빼고 학습하면 forward 쪽에서 오류남 (loss 관련..?)
+```
+
 #### Requirement
-> |name               |version|
-> |-------------------|-------|
-> |pytorch            |1.4.0  |
-> |transformers       |3.5.0  |
-> |pytorch-lightning  |1.2.3  |
-> |kobert_trnasformers|0.4.1  |
-- apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
+```
+pytorch==1.4.0
+transformers==3.5.0
+pytorch-lightning==1.2.3
+kobert_transformers==0.4.1
+apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
+```
 
 <br>
 
