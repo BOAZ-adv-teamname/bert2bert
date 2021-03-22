@@ -1,14 +1,16 @@
 # 정현 시도
-### Aquired
-> |pytorch            |1.4.0|
-> |transformers       |3.5.0|
-> |pytorch-lightning  |1.2.3|
-> |kobert_trnasformers|0.4.1|
+#### required
+> |name               |version|
+> |-------------------|-------|
+> |pytorch            |1.4.0  |
+> |transformers       |3.5.0  |
+> |pytorch-lightning  |1.2.3  |
+> |kobert_trnasformers|0.4.1  |
 - apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
 
 <br>
 
-### 오류
+#### 오류
 > raise RuntimeError("Invoked 'with amp.scale_loss', but internal Amp state has not been initialized. RuntimeError: Invoked 'with amp.scale_loss', but internal Amp state has not been initialized.  model, optimizer = amp.initialize(model, optimizer, opt_level=...) must be called before 'with amp.scale_loss'.
 
 <br>
