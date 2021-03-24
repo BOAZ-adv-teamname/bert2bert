@@ -30,19 +30,19 @@ def inference():
     )
 
     model = model.half().eval().to(device)
-    test_data = open("dataset/abstractive_test_v2.jsonl", "r").read().splitlines()
+    test_data = open("dataset/final.jsonl", "r").read().splitlines()
     submission = open(f"submission_{step}.csv", "w")
 
     test_set = []
     for data in test_data:
         data = json.loads(data)
-        article_original = data["article_original"]
+        article_original = data["original"]
         article_original = " ".join(article_original)
         news_id = data["id"]
         test_set.append((news_id, article_original))
 
     for i, (news_id, text) in tqdm(enumerate(test_set)):
-        tokens = tokenizer.encode_batch([text], max_length=512)
+        tokens = tokenizer.encode_batch([text], max_length=128)
         generated = model.generate(
             input_ids=tokens["input_ids"].to(device),
             attention_mask=tokens["attention_mask"].to(device),
@@ -56,7 +56,7 @@ def inference():
             no_repeat_ngram_size=4,
             bad_words_ids=[[tokenizer.token2idx["[UNK]"]]],
             length_penalty=1.5,
-            max_length=512,
+            max_length=128,
         )
 
         output = tokenizer.decode_batch(generated.tolist())[0]

@@ -1,2 +1,4 @@
-*.pt.0
+saved/
+apex/
+lightning_logs/
 *.jsonl

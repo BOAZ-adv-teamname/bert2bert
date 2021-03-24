@@ -16,9 +16,9 @@ class LightningBase(pl.LightningModule):
             lr: float = 3e-5,
             weight_decay: float = 1e-4,
             save_step_interval: int = 1000,
-            #accelerator: str = "ddp",
-            #precision: int = 16,
-            #use_amp: bool = True,
+            accelerator: str = "ddp",
+            precision: int = 16,
+            use_amp: bool = True,
     ) -> None:
         """constructor of LightningBase"""
 
@@ -30,14 +30,15 @@ class LightningBase(pl.LightningModule):
         self.max_len = max_len
         self.num_gpus = num_gpus
         self.save_step_interval = save_step_interval
-        #self.accelerator = accelerator
-        #self.precision = precision
-        #self.use_amp = use_amp
+        self.accelerator = accelerator
+        self.precision = precision
+        self.use_amp = use_amp
         self.model = None
 
     def configure_optimizers(self):
         """configure optimizers and lr schedulers"""
         no_decay = ["bias", "LayerNorm.weight"]
+
         model = self.model
         optimizer_grouped_parameters = [
             {
@@ -63,15 +64,15 @@ class LightningBase(pl.LightningModule):
             lr=self.lr,
             weight_decay=self.weight_decay,
         )
-
+        
         return [self.optimizer]
 
     def fit(self, train_dataloader: DataLoader):
         trainer = Trainer(
             gpus=self.num_gpus,
-            #distributed_backend=self.accelerator,
-            #precision=self.precision,
-            #amp_backend="apex" if self.use_amp else None,
+            distributed_backend=self.accelerator,
+            precision=self.precision,
+            amp_backend="apex" if self.use_amp else None,
         )
 
         trainer.fit(

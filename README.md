@@ -8,7 +8,7 @@ lightning 다 빼고 학습하면 forward 쪽에서 오류남 (loss 관련..?)
 ```
 pytorch==1.4.0
 transformers==3.5.0
-pytorch-lightning==1.2.3
+pytorch-lightning==1.0.3 / (수정 후 error1 해결)
 kobert_transformers==0.4.1
 apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
 ```
@@ -16,7 +16,19 @@ apex 다운로드 (python version) /오류 뜨면 링크 통해서 받으면 됨
 <br>
 
 #### Error
-> raise RuntimeError("Invoked 'with amp.scale_loss', but internal Amp state has not been initialized. RuntimeError: Invoked 'with amp.scale_loss', but internal Amp state has not been initialized.  model, optimizer = amp.initialize(model, optimizer, opt_level=...) must be called before 'with amp.scale_loss'.
+
+- error1 : 해결
+'''
+~~raise RuntimeError("Invoked 'with amp.scale_loss', but internal Amp state has not been initialized. RuntimeError: Invoked 'with amp.scale_loss', but internal Amp state has not been initialized.  model, optimizer = amp.initialize(model, optimizer, opt_level=...) must be called before 'with amp.scale_loss'.~~
+'''
+
+- error2 : 미해결 / except로 우선 빼둠
+'''
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 2947 (char 2946) 
+#json file 읽을때 생기는 에러 , 데이터 살펴보면서 확인해 봐야할 거 같음
+'''
+
+
 
 <br>
 

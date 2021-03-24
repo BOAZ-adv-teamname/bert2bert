@@ -21,9 +21,9 @@ class Bert2Bert(LightningBase):
             lr: float = 3e-5,
             weight_decay: float = 1e-4,
             save_step_interval: int = 1000,
-            #accelerator: str = "ddp",
-            #precision: int = 16,
-            #use_amp: bool = True,
+            accelerator: str = "ddp",
+            precision: int = 16,
+            use_amp: bool = True,
     ) -> None:
         super(Bert2Bert, self).__init__(
             model_save_path=model_save_path,
@@ -33,9 +33,9 @@ class Bert2Bert(LightningBase):
             lr=lr,
             weight_decay=weight_decay,
             save_step_interval=save_step_interval,
-            #accelerator=accelerator,
-            #precision=precision,
-            #use_amp=use_amp,
+            accelerator=accelerator,
+            precision=precision,
+            use_amp=use_amp,
         )
         encoder_config = BertConfig.from_pretrained("monologg/kobert")
         decoder_config = BertConfig.from_pretrained("monologg/kobert")
