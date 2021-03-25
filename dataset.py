@@ -7,7 +7,7 @@ def load_dataset(batch_size):
     train_data = open("dataset/final.jsonl", "r").read().splitlines()
 
     train_set = []
-    for data in train_data:
+    for data in train_data[100:]:
         try:        
             data = json.loads(data)
             article_original = data["original"].replace('·'," ")

@@ -1,6 +1,6 @@
 import pandas as pd
 
-fname = "submission_25000"
+fname = "submission_37000"
 file = open(fname + ".csv", "r", encoding="utf-8").read().splitlines()
 
 ids, summaries = [], []

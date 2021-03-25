@@ -10,7 +10,7 @@ from bert2bert import KoBertTokenizer
 
 @torch.no_grad()
 def inference():
-    step = sys.argv[1]
+    step = 25000#sys.argv[1]
     encoder_config = BertConfig.from_pretrained("monologg/kobert")
     decoder_config = BertConfig.from_pretrained("monologg/kobert")
     config = EncoderDecoderConfig.from_encoder_decoder_configs(
@@ -34,12 +34,15 @@ def inference():
     submission = open(f"submission_{step}.csv", "w")
 
     test_set = []
-    for data in test_data:
-        data = json.loads(data)
-        article_original = data["original"]
-        article_original = " ".join(article_original)
-        news_id = data["id"]
-        test_set.append((news_id, article_original))
+    for idx,data in enumerate(test_data[:100]):
+        try:
+            data = json.loads(data)
+            article_original = data["original"].replace('·'," ")
+            #article_original = " ".join(article_original)
+            news_id = idx
+            test_set.append((news_id, article_original))
+        except:
+            pass
 
     for i, (news_id, text) in tqdm(enumerate(test_set)):
         tokens = tokenizer.encode_batch([text], max_length=128)
